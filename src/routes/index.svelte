@@ -34,7 +34,7 @@ function getValueFromElement (target) {
     
 }
 </script>
-<main>
+<main class="card">
     <form on:submit={submit}>            
         <fieldset>
             <label for="theme">theme</label>
@@ -53,10 +53,12 @@ function getValueFromElement (target) {
                 <option value="F">F</option>
             </select>
         </fieldset>
+        <fieldset><label for="description">description</label><textarea name="description" id="description"></textarea></fieldset>
         <input type="submit" />            
     </form>
 </main>
 
 <style lang="scss">
     @import '@onivoro/browser-layout/form';    
+    @import '@onivoro/browser-layout/card';    
 </style>

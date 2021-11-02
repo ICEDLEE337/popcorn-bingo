@@ -2,6 +2,7 @@
   "name": "malachi",
   "version": "0.0.1",
   "scripts": {
+    "start": "npm run dev",
     "dev": "svelte-kit dev",
     "build": "svelte-kit build",
     "preview": "svelte-kit preview",
@@ -19,6 +20,6 @@
   },
   "type": "module",
   "dependencies": {
-    "@onivoro/browser-layout": "^0.39.0"
+    "@onivoro/browser-layout": "^0.54.0"
   }
 }

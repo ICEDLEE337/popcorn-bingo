@@ -20,6 +20,6 @@
   },
   "type": "module",
   "dependencies": {
-    "@onivoro/browser-layout": "^0.54.0"
+    "@onivoro/browser-layout": "^0.61.0"
   }
 }

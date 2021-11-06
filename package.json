@@ -20,6 +20,7 @@
   },
   "type": "module",
   "dependencies": {
-    "@onivoro/browser-layout": "^0.65.0"
+    "@onivoro/browser-layout": "^0.69.0",
+    "rxjs": "^7.4.0"
   }
 }

@@ -1,6 +1,6 @@
 <script lang="ts">    
     import {ballStore, ballHistoryStore} from '$lib/stores'; 
-    import Ball from '$lib/component/ball.svelte'
+    import Ball from '$lib/ball.component.svelte'
     import {pick} from '$lib/pick';
     
     let ball = {};
@@ -56,7 +56,7 @@
     .past {
         overflow-x: hidden;        
         overflow-y: auto;        
-        max-height: 120px;          
+        max-height: 130px;          
         @extend .card;  
         &::-webkit-scrollbar {
             display: none;
@@ -92,6 +92,15 @@
             position: relative;
             top: 4px;
         }
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        margin: 0;
+        padding: 0;
+        margin-inline-start: 0;
+        margin-inline-end: 0;
+        margin-block-start: 0;
+        margin-block-end: 0;
     }
 
     .yellow {

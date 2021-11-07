@@ -11,8 +11,8 @@
     .ball {
         background-image: url(ball.svg);
         @extend .hero;
-        height: 120px;
-        width: 120px;
+        height: 130px;
+        width: 130px;
         @extend .txt;
         font-size: 54px;
         font-weight: bold;

@@ -14,8 +14,7 @@
             const index = now % balls.length;
             randomBall = balls[index];        
         }    
-        
-        console.warn([randomBall, ...pastPicks])
+                
         ballHistoryStore.set([randomBall, ...pastPicks])
         console.warn('ball', randomBall);
         ball = randomBall;
@@ -34,12 +33,8 @@
             <h2> Freshly Popped</h2>
         {:else} 
             <h1> Welcome to pop corn bingo!</h1>
-        {/if}
-        <!-- <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="50" cy="50" r="50"/>
-        </svg> -->
-        <!-- {ball} -->
-        <button on:click={() => pick($ballStore, $ballHistoryStore)}>
+        {/if}        
+        <button class:yellow={ball?.letter} on:click={() => pick($ballStore, $ballHistoryStore)}>
             {#if ball?.letter}            
                 <Ball {ball} />
             {:else}
@@ -49,7 +44,7 @@
     </div>
 
     {#if $ballHistoryStore?.length}            
-        <h2>Past Pops</h2>
+        <h3>Past {$ballHistoryStore?.length} Pops</h3>        
         <div class="past">
             {#each $ballHistoryStore as past}
                     <Ball ball={past} />
@@ -72,17 +67,23 @@
     }
 
     .past {
-        overflow-x: scroll;        
-        // overflow-y: hidden;        
-        max-height: 80px;
-        // @extend .flex;   
-        // @extend .btn;     
-        @extend .card;     
+        overflow-x: hidden;        
+        overflow-y: auto;        
+        max-height: 120px;          
+        @extend .card;  
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Hide scrollbar for IE, Edge and Firefox */
+        & {
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+        }   
     
     }
 
-    .hero {            
-        // @extend .pad-3;    
+    .hero {                      
         color: black;                    
         font-size: 3rem;
         height: 98vh;
@@ -104,5 +105,9 @@
             position: relative;
             top: 4px;
         }
+    }
+
+    .yellow {
+        background-color: yellow;
     }
 </style>

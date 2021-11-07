@@ -48,7 +48,7 @@
     @import '@onivoro/browser-layout/button';
 
     .pop {
-        background-image: url(stripe.svg);
+        background-image: url('/stripe.svg');
         background-size: 80px 80px;    
         background-position: 10px;
     }

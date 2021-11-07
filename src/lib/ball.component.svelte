@@ -9,7 +9,7 @@
     @import '@onivoro/browser-layout/hero';
     @import '@onivoro/browser-layout/text';
     .ball {
-        background-image: url(ball.svg);
+        background-image: url('/ball.svg');
         @extend .hero;
         height: 130px;
         width: 130px;

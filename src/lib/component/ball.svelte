@@ -3,4 +3,4 @@
     
 </script>
     
-{ball?.letter?.toUpperCase()} {ball?.number}
+<div>{ball?.letter?.toUpperCase()} {ball?.number}</div>

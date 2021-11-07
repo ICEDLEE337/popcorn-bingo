@@ -31,7 +31,7 @@
 <article class="card hero">
     <div class="pop">
         {#if ball?.letter}            
-            <h1> Freshly Popped</h1>
+            <h2> Freshly Popped</h2>
         {:else} 
             <h1> Welcome to pop corn bingo!</h1>
         {/if}
@@ -48,32 +48,45 @@
         </button>
     </div>
 
-    {#if ball?.letter}            
-
+    {#if $ballHistoryStore?.length}            
         <h2>Past Pops</h2>
-
-        {#each $ballHistoryStore as past}
-            <Ball ball={past} />
-        {/each}
+        <div class="past">
+            {#each $ballHistoryStore as past}
+                    <Ball ball={past} />
+            {/each}
+        </div>
     {/if}
 </article>
 
 <style lang="scss">
     @import '@onivoro/browser-layout/padding';
     @import '@onivoro/browser-layout/card';
+    @import '@onivoro/browser-layout/flex';
     @import '@onivoro/browser-layout/hero';
     @import '@onivoro/browser-layout/button';
 
     .pop {
         background-image: url(stripe.svg);
         background-size: 80px 80px;    
+        background-position: 10px;
+    }
+
+    .past {
+        overflow-x: scroll;        
+        // overflow-y: hidden;        
+        max-height: 80px;
+        // @extend .flex;   
+        // @extend .btn;     
+        @extend .card;     
+    
     }
 
     .hero {            
         // @extend .pad-3;    
         color: black;                    
         font-size: 3rem;
-        height: 100vh;
+        height: 98vh;
+        text-align: center;
     }
 
     .hero, .card {

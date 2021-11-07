@@ -1,5 +1,5 @@
 {
-  "name": "malachi",
+  "name": "popcorn-bingo",
   "version": "0.0.1",
   "scripts": {
     "start": "npm run dev",
@@ -21,7 +21,6 @@
   },
   "type": "module",
   "dependencies": {
-    "@onivoro/browser-layout": "^0.69.0",
-    "rxjs": "^7.4.0"
+    "@onivoro/browser-layout": "^0.69.0"
   }
 }

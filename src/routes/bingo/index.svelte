@@ -1,30 +1,9 @@
 <script lang="ts">    
     import {ballStore, ballHistoryStore} from '$lib/stores'; 
     import Ball from '$lib/component/ball.svelte'
+    import {pick} from '$lib/pick';
 
     let ball = {};
-    
-    function pick (balls: IBall[], pastPicks: IBall[]) {
-        let randomBall;
-        let maxIterations = 1000;
-        let i = 0;
-
-        while (i++ < maxIterations && (!randomBall || wasUsed(pastPicks, randomBall))) {
-            const now = new Date().valueOf();
-            const index = now % balls.length;
-            randomBall = balls[index];        
-        }    
-                
-        ballHistoryStore.set([randomBall, ...pastPicks])
-        console.warn('ball', randomBall);
-        ball = randomBall;
-    }
-    
-    function wasUsed (pastPicks: IBall[], randomBall: IBall) {
-        return !!(pastPicks?.find(
-            past => past.number === randomBall.number && past.letter === randomBall.letter)
-        );
-    }
 </script>
 
 <article class="card hero">
@@ -34,7 +13,7 @@
         {:else} 
             <h1> Welcome to pop corn bingo!</h1>
         {/if}        
-        <button class:yellow={ball?.letter} on:click={() => pick($ballStore, $ballHistoryStore)}>
+        <button class:yellow={ball?.letter} on:click={() => ball = pick($ballStore, $ballHistoryStore)}>
             {#if ball?.letter}            
                 <Ball {ball} />
             {:else}

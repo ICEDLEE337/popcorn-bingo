@@ -6,7 +6,7 @@ export function pick(balls: IBall[], pastPicks: IBall[]) {
     let unUsed = balls.filter(b => !wasUsed(pastPicks, b));
     const index = (+new Date()) % unUsed.length;
     randomBall = unUsed[index];
-    ballHistoryStore.set([randomBall, ...pastPicks])
+    // ballHistoryStore.set([randomBall, ...pastPicks])
     return randomBall;
 }
 

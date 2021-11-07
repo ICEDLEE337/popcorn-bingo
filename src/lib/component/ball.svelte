@@ -14,6 +14,7 @@
         height: 120px;
         width: 120px;
         @extend .txt;
-        font-size: 56px;
+        font-size: 54px;
+        font-weight: bold;
     }
 </style>

@@ -2,8 +2,16 @@
     import {ballStore, ballHistoryStore} from '$lib/stores'; 
     import Ball from '$lib/component/ball.svelte'
     import {pick} from '$lib/pick';
-
+    
     let ball = {};
+
+    function pop (allBalls, pastBalls) {
+        if (ball?.letter) {
+            ballHistoryStore.set([ball, ...pastBalls])
+        }
+        
+        ball = pick(allBalls, pastBalls);
+    }
 </script>
 
 <article class="card hero">
@@ -13,7 +21,7 @@
         {:else} 
             <h1> Welcome to pop corn bingo!</h1>
         {/if}        
-        <button class:yellow={ball?.letter} on:click={() => ball = pick($ballStore, $ballHistoryStore)}>
+        <button class:yellow={ball?.letter} on:click={() => pop($ballStore, $ballHistoryStore)}>
             {#if ball?.letter}            
                 <Ball {ball} />
             {:else}

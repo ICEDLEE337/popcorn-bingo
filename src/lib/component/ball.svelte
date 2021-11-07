@@ -3,7 +3,7 @@
     
 </script>
     
-<div class="ball">{ball?.letter?.toUpperCase()} {ball?.number} {ball?.tries} {ball?.elapsed}</div>
+<div class="ball">{ball?.letter?.toUpperCase()} {ball?.number}</div>
 
 <style lang="scss">
     @import '@onivoro/browser-layout/hero';
@@ -15,6 +15,5 @@
         width: 120px;
         @extend .txt;
         font-size: 56px;
-        font-size: 16px;
     }
 </style>

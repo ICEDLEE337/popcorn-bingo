@@ -1,5 +1,6 @@
 <script lang="ts">    
     import {ballStore, ballHistoryStore} from '$lib/stores'; 
+    import Ball from '$lib/component/ball.svelte'
 
     let ball = {};
     
@@ -14,6 +15,7 @@
             randomBall = balls[index];        
         }    
         
+        console.warn([randomBall, ...pastPicks])
         ballHistoryStore.set([randomBall, ...pastPicks])
         console.warn('ball', randomBall);
         ball = randomBall;
@@ -21,26 +23,39 @@
     
     function wasUsed (pastPicks: IBall[], randomBall: IBall) {
         return !!(pastPicks?.find(
-            past => past.number === randomBall.number && past.letter === random.letter)
+            past => past.number === randomBall.number && past.letter === randomBall.letter)
         );
     }
 </script>
 
 <article class="card hero">
     <div class="pop">
-        <h1> Welcome to pop corn bingo!</h1>
+        {#if ball?.letter}            
+            <h1> Freshly Popped</h1>
+        {:else} 
+            <h1> Welcome to pop corn bingo!</h1>
+        {/if}
         <!-- <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
             <circle cx="50" cy="50" r="50"/>
         </svg> -->
         <!-- {ball} -->
         <button on:click={() => pick($ballStore, $ballHistoryStore)}>
-            {#if ball?.letter}
-                {ball?.letter?.toUpperCase()} {ball?.number}
+            {#if ball?.letter}            
+                <Ball {ball} />
             {:else}
-                Get it Poppin! <img style="height: 32px; display: inline-block;" src="https://image.pngaaa.com/175/3107175-middle.png" />
+                Get it Poppin! <img src="https://image.pngaaa.com/175/3107175-middle.png" />
             {/if}        
         </button>
     </div>
+
+    {#if ball?.letter}            
+
+        <h2>Past Pops</h2>
+
+        {#each $ballHistoryStore as past}
+            <Ball ball={past} />
+        {/each}
+    {/if}
 </article>
 
 <style lang="scss">
@@ -68,6 +83,13 @@
 
     button {
         font-size: 3rem;
-        background-color: white;
+        background-color: rgb(245,245,245);
+
+        img {
+            height: 48px;
+            display: inline-block;
+            position: relative;
+            top: 4px;
+        }
     }
 </style>

@@ -1,12 +1,11 @@
 import preprocess from 'svelte-preprocess';
-
-/** @type {import('@sveltejs/kit').Config} */
-const config = {
-	preprocess: preprocess(),
-
-	kit: {
-		target: '#svelte'
-	}
+import adapter from '@sveltejs/adapter-static';
+export default {
+    preprocess: preprocess(),
+    kit: {
+        target: '#svelte',
+        adapter: adapter({
+            fallback: 'app.html'
+        })
+    },
 };
-
-export default config;

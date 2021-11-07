@@ -25,7 +25,7 @@
             {#if ball?.letter}            
                 <Ball {ball} />
             {:else}
-                Get it Poppin! <img src="https://image.pngaaa.com/175/3107175-middle.png" />
+                Get it Poppin! <img src="/popcorn.png" />
             {/if}        
         </button>
     </div>

@@ -1,4 +1,4 @@
 # todos
 
-1. abstract form logic to isomorphic or browser package
-1. theming support in browser-layout or in each app w/ css vars
+1. add animation to ball moving to bottom of screen
+1. add some motion/video w/ speed dependent upon ballHistory.length

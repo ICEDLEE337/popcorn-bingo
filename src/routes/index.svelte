@@ -46,6 +46,8 @@
     @import '@onivoro/browser-layout/flex';
     @import '@onivoro/browser-layout/hero';
     @import '@onivoro/browser-layout/button';
+    @import '@onivoro/browser-layout/headings';
+    @import '@onivoro/browser-layout/scroll';
 
     .pop {
         background-image: url('/stripe.svg');
@@ -54,20 +56,9 @@
     }
 
     .past {
-        overflow-x: hidden;        
-        overflow-y: auto;        
         max-height: 130px;          
-        @extend .card;  
-        &::-webkit-scrollbar {
-            display: none;
-        }
-
-        /* Hide scrollbar for IE, Edge and Firefox */
-        & {
-        -ms-overflow-style: none;  /* IE and Edge */
-        scrollbar-width: none;  /* Firefox */
-        }   
-    
+        @extend .scroll;        
+        @extend .card;        
     }
 
     .hero {                      
@@ -92,15 +83,6 @@
             position: relative;
             top: 4px;
         }
-    }
-
-    h1, h2, h3, h4, h5, h6 {
-        margin: 0;
-        padding: 0;
-        margin-inline-start: 0;
-        margin-inline-end: 0;
-        margin-block-start: 0;
-        margin-block-end: 0;
     }
 
     .yellow {
